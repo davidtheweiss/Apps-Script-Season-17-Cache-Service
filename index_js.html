@@ -1,0 +1,39 @@
+<script>
+  document.getElementById('btn').addEventListener('click', () => {
+    [...document.getElementsByClassName('metric')].forEach(node => {
+      const child = node.firstElementChild;
+      child.innerText = '';
+      child.classList.add("loading");
+    });
+
+    const value = document.getElementById('region').value;
+    
+    google.script.run
+      .withSuccessHandler(onSuccess)
+      .withFailureHandler(onFailure)
+      .getVaccinationCountByRegion(value);
+  })
+
+  function onSuccess(response) {
+    [...document.getElementsByClassName('metric')].forEach(node => {
+      node.firstElementChild.classList.remove("loading");
+    });
+
+    document.getElementById('todayCount').innerText = response[0];
+    document.getElementById('cumulativeCount').innerText = response[1];
+    document.getElementById('cumulativeFullyVaxedCount').innerText = response[2];
+    document.getElementById('latency').innerText = response[3];
+  }
+
+  function onFailure(error) {
+    [...document.getElementsByClassName('metric')].forEach(node => {
+      node.firstElementChild.classList.remove("loading");
+    });
+
+    document.getElementById('todayCount').innerText = '-';
+    document.getElementById('cumulativeCount').innerText = '-';
+    document.getElementById('cumulativeFullyVaxedCount').innerText = '-';
+    document.getElementById('latency').innerText = 'There has been an error. Please try again in a few moments: ' + error;
+  }
+</script>
+
