@@ -1,0 +1,74 @@
+<style>
+* {
+  font-family: 'Varela Round', sans-serif;
+}
+
+body {
+  height: 100vh;
+  margin: 30px 0 0 20px;
+  background-color: #50E3C2;
+  background-image: 
+    radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%), 
+    radial-gradient(at 82% 65%, hsl(198.00, 100%, 50%) 0, transparent 55%);
+}
+
+#header h1 {
+  font-size: 5rem;
+}
+
+.glass {
+  backdrop-filter: blur(14px) saturate(125%);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+select {
+  border-radius: 4px;
+  padding: 5px 8px;
+  margin-left: 20px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin-left: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 30px 0;
+}
+
+.card {
+  border-radius: 12px;
+  height: 300px;
+  width: 300px;
+  text-align: center;
+}
+
+.metric {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 58px;
+  height: 200px;
+}
+
+.loading {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+</style>
